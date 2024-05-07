@@ -12,7 +12,7 @@ namespace HttpClientConsumeApi.Service
         {
             _httpClientFactory = httpClientFactory;
         }
-        public async Task<T> GetData<T>()
+        public async Task<T> GetDataFromApi<T>()
         {
             T data = default(T);
 
@@ -28,7 +28,9 @@ namespace HttpClientConsumeApi.Service
             };
 
             var httpClient = _httpClientFactory.CreateClient();
+
             HttpResponseMessage response = await httpClient.SendAsync(httpRequestMesage);
+            
             if (response.IsSuccessStatusCode)
             {
                 data = await response.Content.ReadFromJsonAsync<T>().ConfigureAwait(false);

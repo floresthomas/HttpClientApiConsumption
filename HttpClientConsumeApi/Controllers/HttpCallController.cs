@@ -22,7 +22,7 @@ namespace HttpClientConsumeApi.Controllers
         {
             try
             {
-                var response = await _httpCallService.GetData<DataModel>();
+                var response = await _httpCallService.GetDataFromApi<DataModel>();
                 return(response is null) ? NotFound() : Ok(response);
             }
             catch(Exception ex)

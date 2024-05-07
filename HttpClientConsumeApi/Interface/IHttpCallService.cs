@@ -1,7 +1,9 @@
-﻿namespace HttpClientConsumeApi.Interface
+﻿using Microsoft.AspNetCore.Mvc;
+
+namespace HttpClientConsumeApi.Interface
 {
     public interface IHttpCallService
     {
-        Task<T> GetData<T>();
+        Task<T> GetDataFromApi<T>();
     }
 }
